@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora de Ondas Consequenciais baseada em neurociência da decisão e economia comportamental.">
+  <title>Calculadora de Ondas Consequenciais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>🌊 Calculadora de Ondas Consequenciais</h1>
+      <p>Mapeie o efeito dominó neural e estrutural de suas decisões antes que o tempo as cristalize.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="wavesForm" class="form-grid">
+      <!-- Contexto -->
+      <section class="card context">
+        <h2>📌 Contexto da Decisão</h2>
+        <div class="field">
+          <label for="decisionTitle">Título/Descrição da Decisão</label>
+          <input type="text" id="decisionTitle" placeholder="Ex: Substituir fornecedor crítico, Assinar contrato X, Demitir colaborador..." required>
+        </div>
+        <div class="field">
+          <label for="decisionContext">Motivo & Pressão Atual</label>
+          <textarea id="decisionContext" rows="2" placeholder="Urgência artificial, cansaço, hierarquia, oportunidade..."></textarea>
+        </div>
+      </section>
+
+      <!-- 1ª Onda -->
+      <section class="card wave wave-1">
+        <h3>1️⃣ 1ª Onda – Direta (0 a 3 meses)</h3>
+        <div class="field"><label>Consequência Direta</label><input type="text" data-wave="1" data-field="consequence" placeholder="O que acontece imediatamente?"></div>
+        <div class="field"><label>Stakeholders Afetados</label><input type="text" data-wave="1" data-field="stakeholders" placeholder="Quem sente o impacto agora?"></div>
+        <div class="row">
+          <div class="field"><label>Probabilidade (%)</label><input type="number" data-wave="1" data-field="probability" min="0" max="100" placeholder="0-100"></div>
+          <div class="field"><label>Impacto (1-5)</label>
+            <select data-wave="1" data-field="impact">
+              <option value="">Selecione</option><option value="1">1 (Mínimo)</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 (Crítico)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Plano de Mitigação/Monitoramento</label><input type="text" data-wave="1" data-field="mitigation" placeholder="Como acompanhar ou amortecer?"></div>
+      </section>
+
+      <!-- 2ª Onda -->
+      <section class="card wave wave-2">
+        <h3>2️⃣ 2ª Onda – Indireta (3 a 12 meses)</h3>
+        <div class="field"><label>Consequência Indireta</label><input type="text" data-wave="2" data-field="consequence" placeholder="Como altera comportamentos/recursos?"></div>
+        <div class="field"><label>Stakeholders Afetados</label><input type="text" data-wave="2" data-field="stakeholders" placeholder="Equipe, clientes, parceiros..."></div>
+        <div class="row">
+          <div class="field"><label>Probabilidade (%)</label><input type="number" data-wave="2" data-field="probability" min="0" max="100"></div>
+          <div class="field"><label>Impacto (1-5)</label>
+            <select data-wave="2" data-field="impact">
+              <option value="">Selecione</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Plano de Mitigação/Monitoramento</label><input type="text" data-wave="2" data-field="mitigation"></div>
+      </section>
+
+      <!-- 3ª Onda -->
+      <section class="card wave wave-3">
+        <h3>3️⃣ 3ª Onda – Sistêmica/Invisível (1 a 5 anos)</h3>
+        <div class="field"><label>Consequência Sistêmica</label><input type="text" data-wave="3" data-field="consequence" placeholder="Cultura, confiança, reputação, precedentes..."></div>
+        <div class="field"><label>Stakeholders Afetados</label><input type="text" data-wave="3" data-field="stakeholders" placeholder="Mercado, sociedade, próxima geração..."></div>
+        <div class="row">
+          <div class="field"><label>Probabilidade (%)</label><input type="number" data-wave="3" data-field="probability" min="0" max="100"></div>
+          <div class="field"><label>Impacto (1-5)</label>
+            <select data-wave="3" data-field="impact">
+              <option value="">Selecione</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Plano de Mitigação/Monitoramento</label><input type="text" data-wave="3" data-field="mitigation"></div>
+      </section>
+
+      <!-- Filtros Rápidos -->
+      <section class="card filters">
+        <h3>🔍 Filtros de Validação</h3>
+        <div class="field">
+          <label>Teste da Primeira Página</label>
+          <select id="filterPage">
+            <option value="">--</option><option value="sim">Sim, explicaria sem vergonha</option><option value="nao">Não, geraria constrangimento</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Teste da Repetição (Se 100 fizessem igual)</label>
+          <select id="filterRepeat">
+            <option value="">--</option><option value="confianca">Cria confiança</option><option value="desconfianca">Gera desconfiança</option><option value="caos">Leva ao caos</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Custo da Omissão (se não decidir agora)</label>
+          <input type="text" id="filterOmission" placeholder="R$/mês, tempo perdido, desgaste relacional...">
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="btnCalc" class="btn primary">📊 Gerar Mapa</button>
+        <button type="button" id="btnSave" class="btn secondary">💾 Salvar Rascunho</button>
+        <button type="button" id="btnPrint" class="btn tertiary">🖨️ Exportar/Imprimir</button>
+        <button type="reset" class="btn ghost">🗑️ Limpar Tudo</button>
+      </div>
+    </form>
+
+    <section id="report" class="card report hidden">
+      <h2>📑 Mapa de Ondas Consequenciais</h2>
+      <div id="reportContent"></div>
+      <div class="report-footer">
+        <p>⚠️ <em>Este mapa é uma ferramenta de engenharia cognitiva. Não substitui assessoria jurídica, contábil ou clínica. Baseado em frameworks de neurodireito e economia comportamental.</em></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Framework baseado em <strong>Escolhas e Consequências</strong> – Erigutemberg Meneses (2026)</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
